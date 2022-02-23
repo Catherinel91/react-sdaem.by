@@ -1,0 +1,13 @@
+.BtnAdd {
+    display: inline-block;
+    line-height: 37px;
+    padding: 0 18px;
+    background-image: linear-gradient(to right, #9D94FF 0%, #6B50E9 94.5%);
+    border-radius: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    transition:  0.3s ease;
+    &:hover {
+        background-image: linear-gradient(to right, #867CFC 0%, #6929F3 94.5%);  
+    }
+}
