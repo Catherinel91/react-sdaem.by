@@ -1,0 +1,39 @@
+.btnAdd {
+    display: inline-block;
+    position: relative;
+    line-height: 37px;
+    padding: 0 18px;
+    background-image: linear-gradient(to right, #9D94FF 0%, #6B50E9 94.5%);
+    border-radius: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    transition:  0.3s ease;
+    z-index: 1;
+
+    &:before {
+        border-radius: inherit;
+        background-image: linear-gradient(to right, #867CFC 0%, #6929F3 94.5%);
+        content: '';    
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0; 
+        left: 0;
+        bottom:0;
+        right: 0;
+        opacity: 0;
+        transform: scale(0);
+        transform-origin:  center;
+        width: 100%;
+        z-index: -1;
+        transition:  0.3s ease 0s;
+      }
+
+    &:hover {
+          &::before {
+            transform: scale(1);
+            opacity: 1;
+          }
+    }
+}
+
