@@ -1,23 +1,24 @@
-import React from "react";
-import { Routes, Route,Link}  from "react-router-dom";
+import React, {useState} from "react";
+import { Routes, Route}  from "react-router-dom";
 import axios from "axios";
 
-import { Header, Footer} from "./components";
-import { Home} from "./pages";
+
+import { Home, News} from "./pages";
+import Layout from "./components/Layout/Layout";
+import Context from "./components/Context";
 
 
-function App() {
- 
+function App() {  
   
   return (
-   
-    <div className="wrapper"> 
-        <Header />
-        <Routes>
+    <Context.Provider >            
+      <Routes>
+        <Route path="/" element={<Layout/>} >
           <Route path="/" element={<Home/>} />
-        </Routes>
-        <Footer/>
-    </div>
+          <Route path="news" element={<News/>} />
+        </Route>
+      </Routes>  
+    </Context.Provider> 
   );
 }
 

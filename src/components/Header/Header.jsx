@@ -6,20 +6,18 @@ import HeaderBottom from './HeaderBottom';
 import HeaderTop from './HeaderTop';
 
 export default function Header() {
-  const [linkTop, setLinkTop] = useState([]);
-  const [linkBottom, setLinkBottom] = useState([]);
+  const [linkHeader, setLinkHeader] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/db.json').then(function ({ data }) {
-      setLinkTop(data.linksTop);
-      setLinkBottom(data.linksBottom);
+    axios.get('/api').then(function ({ data }) {
+      setLinkHeader(data);
     });
   }, []);
 
   return (
     <header className="header">
-      <HeaderTop items={linkTop} />
-      <HeaderBottom items={linkBottom} />
+      <HeaderTop items={linkHeader.linksTop} />
+      <HeaderBottom items={linkHeader.linksBottom} menuDrop={linkHeader.linksDrop} />
     </header>
   );
 }

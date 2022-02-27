@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import styles from './BtnAdd.module.scss';
 
-export default function BtnAdd() {
+export default function BtnAdd({ text }) {
   return (
-    <Link to="/" className={styles.BtnAdd}>
-      + Разместить объявление
+    <Link to="/" className={styles.btnAdd}>
+      {text}
     </Link>
   );
 }

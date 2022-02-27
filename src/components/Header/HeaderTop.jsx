@@ -1,30 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 import styles from './Header.module.scss';
 import { ReactComponent as MapSvg } from '../../assets/img/map-icon.svg';
 import { ReactComponent as HeartSvg } from '../../assets/img/heart-icon.svg';
 import HeaderLink from './HeaderLink';
+import Container from '../Container/Container';
 
 export default function HeaderTop({ items }) {
   return (
     <div className={styles.headerTop}>
-      <div className="container">
+      <Container>
         <div className={styles.headerTopInner}>
           <div className={styles.headerNav}>
-            {items.length > 0 &&
+            {items &&
               items.map((item, i) => (
                 <HeaderLink
-                  key={`${item}_${item.id}`}
-                  text={item.name}
-                  link={item.url}
+                  key={`${item.id}`}
+                  {...item}
                   img={
                     item.icon && (
                       <MapSvg className={styles.headerMapSvg} width="8px" height="10px" />
                     )
-                  }>
-                  {item.name}
-                </HeaderLink>
+                  }></HeaderLink>
               ))}
           </div>
           <div className={styles.headerTopTools}>
@@ -34,12 +33,12 @@ export default function HeaderTop({ items }) {
                 <HeartSvg />
               </div>
             </Link>
-            <Link to="/" className={styles.headerTopLink + ` ${styles.headerTopLinkAuth}`}>
+            <Link to="/" className={classNames(styles.headerTopLink, styles.headerTopLinkAuth)}>
               Вход и регистрация
             </Link>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

@@ -3,33 +3,16 @@ import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 
-export default function HeaderDrop() {
+export default function HeaderDrop({ menuDrop }) {
   return (
     <div className={styles.headerBottomDrop}>
-      <ul className={styles.headerBottomDropUl}>
-        <Link className={styles.headerBottomDropLi} to="/">
-          Квартиры на сутки в Минске
-        </Link>
-
-        <Link className={styles.headerBottomDropLi} to="/">
-          Квартиры на сутки в Гомеле
-        </Link>
-
-        <Link className={styles.headerBottomDropLi} to="/">
-          Квартиры на сутки в Бресте
-        </Link>
-
-        <Link className={styles.headerBottomDropLi} to="/">
-          Квартиры на сутки в Витебске
-        </Link>
-
-        <Link className={styles.headerBottomDropLi} to="/">
-          Квартиры на сутки в Гродно
-        </Link>
-
-        <Link className={styles.headerBottomDropLi} to="/">
-          Квартиры на сутки в Могилеве
-        </Link>
+      <ul className={styles.headerBottomDropList}>
+        {menuDrop.length > 0 &&
+          menuDrop.map((item) => (
+            <li key={item.id} className={styles.headerBottomDropItem}>
+              <Link to={item.url}>{item.name}</Link>
+            </li>
+          ))}
       </ul>
     </div>
   );

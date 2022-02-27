@@ -4,9 +4,9 @@ import classNames from 'classnames';
 
 import styles from './Footer.module.scss';
 
-export default function FooterLink({ text, link, title }) {
+export default function FooterLink({ text, link, bold, id }) {
   return (
-    <Link to={link} className={title ? styles.title : styles.navLink}>
+    <Link to={link} className={bold ? styles.title : styles.navLink}>
       {text}
     </Link>
   );

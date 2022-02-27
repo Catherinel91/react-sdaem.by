@@ -4,11 +4,17 @@ import classNames from 'classnames';
 
 import styles from './Header.module.scss';
 
-export default function HeaderLink({ text, img, link }) {
+export default function HeaderLink({ icon, url, name, img, iconleft, iconright }) {
   return (
-    <Link to={link} className={classNames(styles.headerLink, { [styles.hasIcon]: img })}>
-      {text}
-      {img ? img : ''}
+    <Link
+      to={url}
+      className={classNames(styles.headerLink, {
+        [styles.hasIcon]: icon,
+        [styles.iconleft]: iconleft,
+        [styles.iconright]: iconright,
+      })}>
+      {name}
+      {img}
     </Link>
   );
 }

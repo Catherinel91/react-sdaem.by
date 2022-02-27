@@ -1,40 +1,48 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import { ReactComponent as MapSvg } from '../../assets/img/map-icon.svg';
-import { ReactComponent as Logo } from '../../assets/img/logo.svg';
+import Logo from '../../assets/img/logo.png';
 
 import BtnAdd from '../BtnAdd/BtnAdd';
 import HeaderDrop from './HeaderDrop';
 import HeaderLink from './HeaderLink';
+import Container from '../Container/Container';
 
-export default function HeaderBottom({ items }) {
+export default function HeaderBottom({ items, menuDrop }) {
+  const location = useLocation();
+
   return (
     <div className={styles.headerBottom}>
-      <div className="container">
+      <Container>
         <div className={styles.headerBottomInner}>
           <nav className={styles.headerNav}>
-            <Link to="/" className={styles.logo}>
-              <Logo />
-            </Link>
-            <ul className={styles.headerBottomUl}>
-              {items.length &&
+            {location.pathname === '/' ? (
+              <a className={styles.logo}>
+                <img src={Logo} alt="" />
+              </a>
+            ) : (
+              <Link to="/" className={styles.logo}>
+                <img src={Logo} alt="" />
+              </Link>
+            )}
+            <ul className={styles.headerBottomList}>
+              {items &&
                 items.map((item) => (
-                  <li key={`${item}_${item.id}`} className={styles.headerBottomLi}>
+                  <li key={item.id} className={styles.headerBottomListItem}>
                     <HeaderLink
-                      text={item.name}
-                      link={item.url}
+                      {...item}
                       img={item.icon && <MapSvg className={styles.headerMapSvg} />}
                     />
-                    {item.menu && <HeaderDrop />}
+                    {item.menu && <HeaderDrop menuDrop={menuDrop} />}
                   </li>
                 ))}
             </ul>
           </nav>
-          <BtnAdd />
+          <BtnAdd text={'+ Разместить объявление'} />
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

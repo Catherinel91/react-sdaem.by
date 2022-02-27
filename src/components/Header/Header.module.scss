@@ -12,24 +12,15 @@
         &:not(:last-child) {
             margin-right: 57px;
         }
-        &.hasIcon {
-            padding-left: 13px;
-        }
-
-        .headerMapSvg {
-            position: absolute;
-            display: block;
-            left: 0px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+        
     }
+    
 }
 
 .logo {
     margin-right: 80px;
     max-width: 134px;
-    svg {
+    img {
         display: block;
     }
 }
@@ -44,6 +35,29 @@
     display: flex;
     align-items: center;
     line-height: 17px;
+
+    &.hasIcon {
+        
+        &.iconleft{
+            svg{
+                position: absolute;
+                display: block;
+                left: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+            }            
+            padding-left: 13px;
+        }
+        &.iconright {
+            svg{
+                margin-left: 15px;
+                color: $yellow-icons;
+            }            
+        }
+        
+    }
+
+    
     &:hover {
         color:$black;
     }
@@ -115,11 +129,6 @@
 
         &::after {
             width: calc(100% - 80px);
-        }
-        
-        .headerMapSvg {
-            margin-left: 15px;
-            color: $yellow-icons;
         }    
         
     }
@@ -130,11 +139,11 @@
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
 }
 
-.headerBottomUl {
+.headerBottomList {
     display: flex;
 }
 
-.headerBottomLi {
+.headerBottomListItem {
     position: relative;
     &:not(:last-child) {
         .headerLink {
@@ -163,6 +172,7 @@
     top: 100%;
     padding-top: 24px;
     width: 100%;
+    z-index: 2;
     animation: menu-dropdown 0.4s ease-out;
 }
 
@@ -171,20 +181,24 @@
     to { top: 100%; }
 }
 
-.headerBottomDropUl {
+.headerBottomDropList {
     position: absolute;
     top: 100%;
     background: #FFFFFF;
     box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.3);
     border-radius: 10px;
     width: 100%;
+    overflow: hidden;
 }
 
-.headerBottomDropLi {
+.headerBottomDropItem {
     display: block;
-    padding: 10px 15px;
-    font-weight: 500;
-    line-height: 17px;
+    a {
+        display: block;
+        padding: 10px 15px;
+        font-weight: 500;
+        line-height: 17px;
+    }
     &:hover {
         background: $gray-light;
     }

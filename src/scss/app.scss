@@ -2,11 +2,7 @@
 @import 'variables';
 @import 'libs/normalize';
 
-* {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  outline: none;
+* ,*::after, *::before{  
   font-family: 'Inter',  Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
@@ -17,27 +13,39 @@ body {
   font-size: 14px;
   line-height: 21px;
   font-weight: 400;
+  color: $black;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
 }
 
-.wrapper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+input, button, textarea {
+  font-size: 14px;
 }
 
-.container {
-  margin: 0 auto;
-  width: 1285px;
-  @media (max-width: $tablet-l){
-    width: auto;
-    margin: 0 50px;
-  }
-  @media (max-width: $tablet){
-    width: auto;
-    margin: 0 30px;
-  }
-  @media (max-width: $mobile){
-    width: auto;
-    margin: 0 20px;
-  }
+input, button{
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+input:focus,
+input:active {
+  outline:none;
+}
+
+textarea:active {outline:none;}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
 }
