@@ -2,12 +2,12 @@ import React from 'react';
 
 import styles from './NewsCards.module.scss';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function NewsCard({ url, img, title, text, date }) {
   return (
     <div className={styles.card}>
-      <Link to={url} className={styles.imgLink}>
+      <Link to={`/news${url}`} className={styles.imgLink}>
         <img className={styles.img} src={img} alt="" />
       </Link>
       <div className={styles.content}>
@@ -17,7 +17,7 @@ export default function NewsCard({ url, img, title, text, date }) {
         </div>
         <div className={styles.contentBottom}>
           <span className={styles.date}>{date}</span>
-          <Link to={url} className={styles.contentLink}>
+          <Link to={`/news${url}`} className={styles.contentLink}>
             Читать
           </Link>
         </div>

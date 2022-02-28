@@ -1,0 +1,136 @@
+@import '../../../scss/variables';
+
+.newsDetailMain {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        left: 0;
+        right: 0;
+        height: 280px;
+        top: 0;
+        background: linear-gradient(to right, rgba(148, 175, 255, 0.1) 0%, rgba(78, 100, 249, 0.1) 94.5%);    
+        z-index: -1;
+    }
+     h1 {
+         margin-bottom: 30px;
+     }
+}
+
+.wrapper {
+    max-width: 844px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.shareText {
+    line-height: 16px;
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+.date {
+    background: rgba(102, 78, 249, 0.1);
+    border-radius: 18px;
+    color: $blue;
+    padding: 0 15px;
+    line-height: 37px;
+    text-align: center;
+}
+
+.image ,
+.img{
+    width: 100%;
+}
+.image {
+    position: relative;
+    margin-bottom: 40px;
+    &::after {
+        content:"";
+        display: block;
+        position: absolute;
+        top: 80px;
+        left:  -110px;
+        width: 60px;
+        height: 60px;
+        background-image: url('../../../assets/img/pattern-dots.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.text {
+    width: 100%;
+    p {
+        font-size: 16px;
+        line-height: 24px;
+        &:not(:last-child ) {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.recomendations {    
+    padding-top: 60px;
+    padding-bottom: 100px;
+    background: linear-gradient(to right, rgba(148, 175, 255, 0.1) 0%, rgba(78, 100, 249, 0.1) 94.5%);    
+}
+
+.recomendationsInner {
+    h2 {
+        margin-bottom: 45px;
+    }
+}
+
+.recomendationsCards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+
+.share {
+    display: flex;
+    align-items:center;
+}
+
+.shareIcons{
+    display: flex;
+
+    button {
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        transition: 0.2s ease 0s;
+        &:not(:last-child) {
+            margin-right: 15px;
+        }
+        &:hover{
+            svg {
+                background: rgba(102, 78, 249, 0.2);
+            }
+        }
+    }
+
+    svg { 
+        display: inline-block;
+        padding: 7px;
+        background-color: red;
+        border-radius: 50%;
+        background: rgba(102, 78, 249, 0.1);
+        color: $blue;
+        transition: 0.2s ease 0s;
+        flex-shrink: 0;
+    }
+}

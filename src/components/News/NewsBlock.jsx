@@ -71,7 +71,7 @@ export default function NewsBlock() {
         <BreadCrumbs itemsLink={itemsLink} />
         <div className={styles.newsInner}>
           <div className={styles.blockTitle}>
-            <h2 className="h2">Новости</h2>
+            <h1 className="h1">Новости</h1>
             <Search
               onSubmit={(e) => {
                 e.preventDefault();
