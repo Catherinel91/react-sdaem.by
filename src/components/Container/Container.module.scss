@@ -1,0 +1,18 @@
+@import '../../scss/variables';
+
+.container {
+    margin: 0 auto;
+    width: 1285px;
+    @media (max-width: $tablet-l){
+      width: auto;
+      margin: 0 50px;
+    }
+    @media (max-width: $tablet){
+      width: auto;
+      margin: 0 30px;
+    }
+    @media (max-width: $mobile){
+      width: auto;
+      margin: 0 20px;
+    }
+}

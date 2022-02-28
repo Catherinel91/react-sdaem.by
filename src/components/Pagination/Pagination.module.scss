@@ -1,0 +1,42 @@
+@import '../../scss/variables';
+
+.pagination {
+    display: flex;
+    align-items:center;
+    font-size: 18px;
+    
+    span {
+        width: 22px;
+        color: $gray2;
+        flex-shrink: 0;
+    }
+}
+
+.page{
+    display: inline-block;
+    min-width: 22px;
+    padding-left: 3px;
+    padding-right: 3px;
+    color:$gray2;
+    position: relative;
+    text-align: center;
+    &.active {
+        color: #000;
+        font-weight: 600;
+        &::after {
+            content:"";
+            display: block;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: $yellow-icons;
+        }
+    }
+
+    &.inactive {
+        pointer-events: none;
+    }
+}
+
